@@ -1,6 +1,9 @@
 package pl.coderslab.beans.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "books")
@@ -9,10 +12,21 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Size(min=10, message = "{book.isbn.size}")
+    @Digits(integer = 10, fraction = 0, message = "{book.isbn.digits}")
     private String isbn;
+    @NotNull
+    @Size(min = 1, message = "{book.title.size}")
     private String title;
+    @NotNull
+    @Size(min = 1, message = "{book.author.size}")
     private String author;
+    @NotNull
+    @Size(min = 1, message = "{book.publisher.size}")
     private String publisher;
+    @NotNull
+    @Size(min = 1, message = "{book.type.size}")
     private String type;
 
 

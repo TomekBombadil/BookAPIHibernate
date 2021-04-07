@@ -2,5 +2,8 @@
 
 use workshop_hibernate;
 
+select * from books;
+
+
 
 

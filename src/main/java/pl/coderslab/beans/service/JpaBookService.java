@@ -7,11 +7,13 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.beans.model.Book;
 import pl.coderslab.beans.repository.BookRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Primary
+@Transactional
 public class JpaBookService implements BookService {
 
     private final BookRepository bookRepository;
